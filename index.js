@@ -14,7 +14,7 @@ const server = app
 
 let sequenceNumberByClient = new Map();
 
-const io = socketIO(app)
+const io = socketIO(server)
 
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
