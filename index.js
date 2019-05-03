@@ -1,15 +1,19 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const PORT = process.env.PORT || 5000
-const io = require("socket.io"), server = io.listen(8000);
+const PORT = process.env.PORT || 8000
+const server = require('http').createServer(app)
+const io = require('socket.io')(server)
+////const io = require("socket.io"), server = io.listen(8000);
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
+server.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 let sequenceNumberByClient = new Map();
@@ -35,6 +39,8 @@ server.on("connection", (socket) => {
         console.log("server got disconnect");
     });
 });
+
+
 
 // sends each client its current sequence number
 setInterval(() => {
