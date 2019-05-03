@@ -20,8 +20,7 @@ setInterval(
     function()
     {
         var map = CanvasGamepad.observe();
-        console.log(new Date() + ":" + JSON.stringify(map));
-        console.log("send to IP");
+        //console.log(new Date() + ":" + JSON.stringify(map));
     }
     ,1000
 );
