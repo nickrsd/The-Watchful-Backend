@@ -2,11 +2,10 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const server = require('http').createServer(app)
-const io = require('socket.io')(server)
+const socketIO = require('socket.io')
 ////const io = require("socket.io"), server = io.listen(8000);
 
-express()
+const server = app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
@@ -14,6 +13,8 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 let sequenceNumberByClient = new Map();
+
+const io = socketIO(app)
 
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
@@ -48,4 +49,6 @@ setInterval(() => {
     }
 }, 1000);
 
-server.listen(8000)
+setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+
+//server.listen(8000)
