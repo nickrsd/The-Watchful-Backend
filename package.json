@@ -20,7 +20,13 @@
   },
   "homepage": "https://github.com/nickrsd/The-Watchful-Backend#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0"
+  },
+  "devDependencies": {
+    "request": "^2.88.0",
+    "tape": "^4.10.1"
   }
 }

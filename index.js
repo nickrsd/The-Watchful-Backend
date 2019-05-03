@@ -1,9 +1,17 @@
-const
-    io = require("socket.io"),
-    server = io.listen(8000);
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+const io = require("socket.io"), server = io.listen(8000);
 
-let
-    sequenceNumberByClient = new Map();
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+//   .set('view engine', 'ejs')
+  .get('/', (req, res) => res.sendFile('index.html'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
+let sequenceNumberByClient = new Map();
 
 // event fired every time a new client connects:
 server.on("connection", (socket) => {
