@@ -1,0 +1,26 @@
+{
+  "name": "TheWatchful",
+  "version": "1.0.0",
+  "description": "Backend service to manage interactions between the watchful game and the players",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickrsd/The-Watchful-Backend.git"
+  },
+  "keywords": [
+    "D&D"
+  ],
+  "author": "Dominic Rodriquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickrsd/The-Watchful-Backend/issues"
+  },
+  "homepage": "https://github.com/nickrsd/The-Watchful-Backend#readme",
+  "dependencies": {
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  }
+}
