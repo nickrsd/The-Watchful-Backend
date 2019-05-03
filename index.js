@@ -16,24 +16,25 @@ express()
 let sequenceNumberByClient = new Map();
 
 // event fired every time a new client connects:
-server.on("connection", (socket) => {
+io.on("connection", (socket) => {
+
+    socket.emit('connection');
+
     console.info(`Client connected [id=${socket.id}]`);
     // initialize this client's sequence number
     sequenceNumberByClient.set(socket, 1);
 
     // when socket disconnects, remove it from the list:
     socket.on("disconnect", () => {
+        socket.emit('disconnecting');
         sequenceNumberByClient.delete(socket);
         console.info(`Client gone [id=${socket.id}]`);
     });
 
     socket.on('event', function(data){
         console.log("server got data");
+        socket.emit('sent event');
         console.log(data);
-    });
-
-    socket.on('disconnect', function(){
-        console.log("server got disconnect");
     });
 });
 
