@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 5000
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 ////const io = require("socket.io"), server = io.listen(8000);
@@ -11,10 +11,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
-
-
-server.listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 let sequenceNumberByClient = new Map();
 
@@ -49,3 +46,5 @@ setInterval(() => {
         sequenceNumberByClient.set(client, sequenceNumber + 1);
     }
 }, 1000);
+
+server.listen(8000)
