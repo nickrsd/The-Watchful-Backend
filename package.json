@@ -4,7 +4,7 @@
   "description": "Backend service to manage interactions between the watchful game and the players",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
