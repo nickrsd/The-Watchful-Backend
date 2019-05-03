@@ -1,4 +1,5 @@
 const express = require('express')
+const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const io = require("socket.io"), server = io.listen(8000);
@@ -7,7 +8,7 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.sendFile('index.html'))
+  .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
@@ -23,6 +24,15 @@ server.on("connection", (socket) => {
     socket.on("disconnect", () => {
         sequenceNumberByClient.delete(socket);
         console.info(`Client gone [id=${socket.id}]`);
+    });
+
+    socket.on('event', function(data){
+        console.log("server got data");
+        console.log(data);
+    });
+
+    socket.on('disconnect', function(){
+        console.log("server got disconnect");
     });
 });
 
