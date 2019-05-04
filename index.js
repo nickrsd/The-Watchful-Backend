@@ -18,21 +18,10 @@ let sequenceNumberByClient = new Map();
 const io = socketIO(server)
 io.use(monitorio({ port: 8001 }))
 
-function logControllerState(controlData) {
-    let distance = 'position x: ${controlData.position}'
-}
-
-function between(x, min, max) {
-    return x >= min && x <= max;
-}
-
-
-let maxDistance = 50.0
-
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
 
-    io.emit('connection');
+    socket.emit('connection');
 
     console.info(`Client connected [id=${socket.id}]`);
     // initialize this client's sequence number
@@ -40,14 +29,14 @@ io.on("connection", (socket) => {
 
     // when socket disconnects, remove it from the list:
     socket.on("disconnect", () => {
-        io.emit('disconnecting');
+        socket.emit('disconnecting');
         sequenceNumberByClient.delete(socket);
         console.info(`Client gone [id=${socket.id}]`);
     });
 
     socket.on('event', function(data){
         console.log("server got data");
-        io.emit('sent event');
+        socket.emit('sent event');
         console.log(data);
     });
 
