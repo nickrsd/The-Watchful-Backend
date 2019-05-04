@@ -1,4 +1,8 @@
 body {
+	touch-action: none;
+	-ms-touch-action: none;
+	overflow: hidden;
+	font-family: "bit";
 	margin: 0;
 	padding: 0;
 	margin-top: 20px;
@@ -65,12 +69,12 @@ body {
   .highlight.active {
 	display: block;
   }
-  
+
   #server-time {
-	background-color: goldenrod;
+	background-color: darkslateblue;
 	width: 100%;
 	height: 15px;
-	text-align: center
+	text-align: left
   }
   
   .zone {
