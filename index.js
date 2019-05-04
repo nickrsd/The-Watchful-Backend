@@ -3,6 +3,7 @@ const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const socketIO = require('socket.io')
+const monitorio = require('monitor.io')
 ////const io = require("socket.io"), server = io.listen(8000);
 
 const server = app
@@ -15,6 +16,7 @@ const server = app
 let sequenceNumberByClient = new Map();
 
 const io = socketIO(server)
+io.use(monitorio({ port: 8001 }))
 
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
@@ -35,6 +37,12 @@ io.on("connection", (socket) => {
     socket.on('event', function(data){
         console.log("server got data");
         socket.emit('sent event');
+        console.log(data);
+    });
+
+    socket.on('movePlayer', function(data){
+        console.log("server got data");
+        socket.emit('PlayerMoved', data);
         console.log(data);
     });
 });
