@@ -76,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             console.log(data)
         }).on('move', function(evt, data) {
             let isTranslation = data.position.x <= document.body.clientWidth / 2
-            let xOffset = Math.cos(data.angle.radian) * (distance / maxDistance) // get the horizontal camera offset multiplied by normalize distance 
-            let yOffset = Math.sin(data.angle.radian) * (distance / maxDistance) // get the vertical camera offset multiplied by normalize distance 
+            let xOffset = Math.cos(data.angle.radian) * (data.distance / maxDistance) // get the horizontal camera offset multiplied by normalize distance 
+            let yOffset = Math.sin(data.angle.radian) * (data.distance / maxDistance) // get the vertical camera offset multiplied by normalize distance 
      
             controllerOffset = {
                  player: controllerOffset.player,
