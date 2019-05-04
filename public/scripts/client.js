@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             console.log(data)
         }).on('move', function(evt, data) {
             console.log(data)
-            io.emit('movePlayer', data)
+            socket.emit('movePlayer', data)
         }).on('dir:up plain:up dir:left plain:left dir:down ' +
                 'plain:down dir:right plain:right',
                 function(evt, data) {
