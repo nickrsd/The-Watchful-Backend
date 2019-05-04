@@ -75,17 +75,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
         joystick.on('start end', function(evt, data) {
             console.log(data)
         }).on('move', function(evt, data) {
-            let isTranslation = data.position.x <= document.body.clientWidth / 2
+            let leftSideOfScreen = data.position.x <= document.body.clientWidth / 2
+            let rightSideOfScreen = data.position.x > document.body.clientWidth / 2
             let xOffset = Math.cos(data.angle.radian) * (data.distance / maxDistance) // get the horizontal camera offset multiplied by normalize distance 
             let yOffset = Math.sin(data.angle.radian) * (data.distance / maxDistance) // get the vertical camera offset multiplied by normalize distance 
      
-            controllerOffset = {
-                 player: controllerOffset.player,
-                 yawOffest: isTranslation ? controllerOffset.yawOffset : xOffset,
-                 pitchOffset: isTranslation ? controllerOffset.pitchOffset : yOffset,
-                 moveX: isTranslation ? xOffset : controllerOffset.moveX,
-                 moveY: isTranslation ? xOffset : controllerOffset.moveY
-             }
+            if (leftSideOfScreen) {
+                controllerOffset.moveX = xOffset
+                controllerOffset.moveY = YOffset
+            }
+            if (rightSideOfScreen) {
+                controllerOffset.yawOffset = xOffset
+                controllerOffset.pitchOffset = yOffset
+            }
+            // controllerOffset.yawOffset = isTranslation ? controllerOffset.yawOffset : xOffset
+            // controllerOffset.pitchOffset = isTranslation ? controllerOffset.pitchOffset : yOffset
+            // controllerOffset.moveX = isTranslation ? xOffset : controllerOffset.moveX
+            // controllerOffset.moveY = isTranslation ? YOffset : controllerOffset.moveY
 
             socket.emit('movePlayer', controllerOffset)
         }).on('dir:up plain:up dir:left plain:left dir:down ' +
