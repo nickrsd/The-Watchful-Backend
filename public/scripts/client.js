@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
      
             if (leftSideOfScreen) {
                 controllerOffset.moveX = xOffset
-                controllerOffset.moveY = YOffset
+                controllerOffset.moveY = yOffset
             }
             if (rightSideOfScreen) {
                 controllerOffset.yawOffset = xOffset
