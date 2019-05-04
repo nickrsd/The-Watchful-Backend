@@ -71,7 +71,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function bindJoystick() {
         joystick.on('start end', function(evt, data) {
-            console.log(data)
+            if (evt == "end") {
+                let leftSideOfScreen = data.position.x <= document.body.clientWidth / 2
+                let rightSideOfScreen = data.position.x > document.body.clientWidth / 2
+                if (leftSideOfScreen) {
+                    controllerOffset.moveX = 0
+                    controllerOffset.moveY = 0
+                }
+                if (rightSideOfScreen) {
+                    controllerOffset.yawOffest = 0
+                    controllerOffset.pitchOffset = 0
+                }
+                socket.emit('movePlayer', controllerOffset)
+            }
+        }).on("player1Move", function(evt, data) {
+            console.log("did receive player move message")
         }).on('move', function(evt, data) {
             let leftSideOfScreen = data.position.x <= document.body.clientWidth / 2
             let rightSideOfScreen = data.position.x > document.body.clientWidth / 2
