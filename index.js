@@ -18,10 +18,21 @@ let sequenceNumberByClient = new Map();
 const io = socketIO(server)
 io.use(monitorio({ port: 8001 }))
 
+function logControllerState(controlData) {
+    let distance = 'position x: ${controlData.position}'
+}
+
+function between(x, min, max) {
+    return x >= min && x <= max;
+}
+
+
+let maxDistance = 50.0
+
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
 
-    socket.emit('connection');
+    io.emit('connection');
 
     console.info(`Client connected [id=${socket.id}]`);
     // initialize this client's sequence number
@@ -29,21 +40,31 @@ io.on("connection", (socket) => {
 
     // when socket disconnects, remove it from the list:
     socket.on("disconnect", () => {
-        socket.emit('disconnecting');
+        io.emit('disconnecting');
         sequenceNumberByClient.delete(socket);
         console.info(`Client gone [id=${socket.id}]`);
     });
 
     socket.on('event', function(data){
         console.log("server got data");
-        socket.emit('sent event');
+        io.emit('sent event');
         console.log(data);
     });
 
     socket.on('movePlayer', function(data){
         console.log("server got data");
-        socket.emit('PlayerMoved', data);
-        console.log(data);
+    //    let xOffset = Math.cos(data.angle.radian) * (distance / maxDistance) // get the horizontal camera offset multiplied by normalize distance 
+    //    let yOffset = Math.sin(data.angle.radian) * (distance / maxDistance) // get the vertical camera offset multiplied by normalize distance 
+
+    //     let movement = {
+    //         yawOffest: data.movementMultiplier.camera * xOffset,
+    //         pitchOffset: data.movementMultiplier.camera * yOffset,
+    //         moveX: data.movementMultiplier.position * xOffset,
+    //         moveX: data.movementMultiplier.position * yOffset 
+    //     }
+        let playerMove = `player${data.player}Move`
+        console.log(`(p${data.player} Offsets) yaw: ${data.yawOffset} pitch: ${data.pitchOffset} x: ${data.moveX} y: ${data.moveY}`)
+        io.emit(playerMove, data);
     });
 });
 

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //https://mighty-everglades-83549.herokuapp.com
 
     var socket = io()
+
     //var socket = io.connect('https://www.thewatchful.net:8000');
     //const ioClient = socket.connect("http://localhost:8000")
 
@@ -37,7 +38,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         el.innerHTML = 'Server time: ' + timeString;
     });
 
-
+    var controllerOffset = {
+        player: 1,
+        yawOffest: 0,
+        pitchOffset: 0,
+        moveX: 0,
+        moveY: 0
+    }
 
     var joystick
 
@@ -68,8 +75,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         joystick.on('start end', function(evt, data) {
             console.log(data)
         }).on('move', function(evt, data) {
-            console.log(data)
-            socket.emit('movePlayer', data)
+            let isTranslation = data.position.x <= document.body.clientWidth / 2
+            let xOffset = Math.cos(data.angle.radian) * (distance / maxDistance) // get the horizontal camera offset multiplied by normalize distance 
+            let yOffset = Math.sin(data.angle.radian) * (distance / maxDistance) // get the vertical camera offset multiplied by normalize distance 
+     
+            controllerOffset = {
+                 player: controllerOffset.player,
+                 yawOffest: isTranslation ? controllerOffset.yawOffset : xOffset,
+                 pitchOffset: isTranslation ? controllerOffset.pitchOffset : yOffset,
+                 moveX: isTranslation ? xOffset : controllerOffset.moveX,
+                 moveY: isTranslation ? xOffset : controllerOffset.moveY
+             }
+
+            socket.emit('movePlayer', controllerOffset)
         }).on('dir:up plain:up dir:left plain:left dir:down ' +
                 'plain:down dir:right plain:right',
                 function(evt, data) {
