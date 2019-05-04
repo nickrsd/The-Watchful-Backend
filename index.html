@@ -6,17 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Watchful</title>
 
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="icon" href="images/favicon.ico" />
+    <!-- <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="icon" href="images/favicon.ico" /> -->
+    <link rel="stylesheet" href="public/styles/styles.css" />
+    <link rel="icon" href="public/images/favicon.ico" />
   </head>
 
   <body>
         <p id='server-time'></p>
-        <canvas id="game"></canvas>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-        <script src="scripts/multikey.js"></script>
-        <script src="scripts/canvas-gamepad.js"></script>
-        <script src="scripts/canvas.js"></script>
-        <script src="scripts/client.js"></script>
+
+<div class="dynamic active highlight highlight-javascript">
+</div>
+<div class="static highlight highlight-javascript">
+</div>
+<div id="zone_joystick">
+  <div class="zone dynamic active"><h1>dynamic</h1></div>
+</div>
+<br/>
+<div>
+</div>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.js"></script> -->
+        <!-- <script src="scripts/multikey.js"></script>
+        <script src="scripts/canvas-gamepad.js"></script> -->
+
+        <script src="public/scripts/controller.js"></script>
+        <script src="public/scripts/canvas.js"></script>
+        <!-- <script src="public/scripts/client.js"></script> -->
+
+        <!-- <script src="scripts/canvas.js"></script>
+        <script src="scripts/controller.js"></script>
+        <script src="scripts/client.js"></script> -->
   </body>
 </html>
