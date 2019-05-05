@@ -85,6 +85,6 @@ function updateMovement() {
     }
 }
 
-setInterval(updateMovement, 100)
+setInterval(updateMovement, 16)
 
 //server.listen(8000)
