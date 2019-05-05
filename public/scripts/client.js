@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 controllerOffset.pitchOffset = 0
             }
             socket.emit('movePlayer', controllerOffset)
-        })
         // joystick.on('start end', function(evt, data) {
         //     if (evt == "end") {
         //         console.log(evt)
