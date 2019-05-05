@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function bindJoystick() {
         joystick.on('start end', function(evt, data) {
             if (evt == "end") {
+                console.log(evt)
+                console.log(data)
                 let leftSideOfScreen = data.position.x <= document.body.clientWidth / 2
                 let rightSideOfScreen = data.position.x > document.body.clientWidth / 2
                 if (leftSideOfScreen) {
@@ -100,10 +102,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 controllerOffset.yawOffset = xOffset
                 controllerOffset.pitchOffset = yOffset
             }
-            // controllerOffset.yawOffset = isTranslation ? controllerOffset.yawOffset : xOffset
-            // controllerOffset.pitchOffset = isTranslation ? controllerOffset.pitchOffset : yOffset
-            // controllerOffset.moveX = isTranslation ? xOffset : controllerOffset.moveX
-            // controllerOffset.moveY = isTranslation ? YOffset : controllerOffset.moveY
 
             socket.emit('movePlayer', controllerOffset)
         }).on('dir:up plain:up dir:left plain:left dir:down ' +
