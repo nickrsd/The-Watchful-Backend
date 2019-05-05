@@ -76,13 +76,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
             let leftSideOfScreen = data.position.x <= document.body.clientWidth / 2
             let rightSideOfScreen = data.position.x > document.body.clientWidth / 2
             if (leftSideOfScreen) {
+                console.log("end left")
                 controllerOffset.moveX = 0
                 controllerOffset.moveY = 0
             }
             if (rightSideOfScreen) {
+                console.log("end right")
                 controllerOffset.yawOffest = 0
                 controllerOffset.pitchOffset = 0
             }
+            console.log(controllerOffset)
             socket.emit('movePlayer', controllerOffset)
         // joystick.on('start end', function(evt, data) {
         //     if (evt == "end") {
