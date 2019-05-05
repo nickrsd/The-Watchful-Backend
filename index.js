@@ -21,7 +21,7 @@ io.use(monitorio({ port: 8001 }))
 var players = {
     0: {
         player: 1,
-        yawOffest: 0,
+        yawOffset: 0,
         pitchOffset: 0,
         moveX: 0,
         moveY: 0

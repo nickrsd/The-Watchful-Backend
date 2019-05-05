@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var controllerOffset = {
         player: 1,
-        yawOffest: 0,
+        yawOffset: 0,
         pitchOffset: 0,
         moveX: 0,
         moveY: 0
@@ -82,27 +82,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
             if (rightSideOfScreen) {
                 console.log("end right")
-                controllerOffset.yawOffest = 0
+                controllerOffset.yawOffset = 0
                 controllerOffset.pitchOffset = 0
             }
             console.log(controllerOffset)
             socket.emit('movePlayer', controllerOffset)
-        // joystick.on('start end', function(evt, data) {
-        //     if (evt == "end") {
-        //         console.log(evt)
-        //         console.log(data)
-        //         let leftSideOfScreen = data.position.x <= document.body.clientWidth / 2
-        //         let rightSideOfScreen = data.position.x > document.body.clientWidth / 2
-        //         if (leftSideOfScreen) {
-        //             controllerOffset.moveX = 0
-        //             controllerOffset.moveY = 0
-        //         }
-        //         if (rightSideOfScreen) {
-        //             controllerOffset.yawOffest = 0
-        //             controllerOffset.pitchOffset = 0
-        //         }
-        //         socket.emit('movePlayer', controllerOffset)
-        //     }
         }).on("player1Move", function(evt, data) {
             console.log("did receive player move message")
         }).on('move', function(evt, data) {
