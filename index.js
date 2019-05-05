@@ -81,7 +81,7 @@ setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 function updateMovement() {
     for (var key in players) {
         let playerMove = `player${key}Move`
-        io.emit(playerMove, play)
+        io.emit(playerMove, players[key])
     }
 }
 
