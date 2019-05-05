@@ -18,6 +18,16 @@ let sequenceNumberByClient = new Map();
 const io = socketIO(server)
 io.use(monitorio({ port: 8001 }))
 
+var players = {
+    0: {
+        player: 1,
+        yawOffest: 0,
+        pitchOffset: 0,
+        moveX: 0,
+        moveY: 0
+    }
+}
+
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
 
@@ -51,9 +61,8 @@ io.on("connection", (socket) => {
     //         moveX: data.movementMultiplier.position * xOffset,
     //         moveX: data.movementMultiplier.position * yOffset 
     //     }
-        let playerMove = `player${data.player}Move`
+        players[data.player] = data
         console.log(`(p${data.player} Offsets) yaw: ${data.yawOffset} pitch: ${data.pitchOffset} x: ${data.moveX} y: ${data.moveY}`)
-        io.emit(playerMove, data);
     });
 });
 
@@ -68,5 +77,12 @@ setInterval(() => {
 }, 1000);
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+
+setInterval(() => {
+    players.forEach((play) => {
+        let playerMove = `player${play.player}Move`
+        io.emit(playerMove, play);
+    })
+}, 100)
 
 //server.listen(8000)
