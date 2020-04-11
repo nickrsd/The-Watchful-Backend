@@ -9,6 +9,7 @@ body {
 	max-width: 1024px;
 	margin-left: auto;
 	margin-right: auto;
+	scroll-behavior: auto;
   }
   
   #buttons {
@@ -142,6 +143,8 @@ body {
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
 	overflow: scroll;
+	scroll-behavior: smooth;
+	overflow-x: scroll;
 }
 
 pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }

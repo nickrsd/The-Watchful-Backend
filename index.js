@@ -93,7 +93,9 @@ const server = app
                 </div>
                 <div class="login-btn" id="appleid-signin" data-color="black" data-border="true" data-type="sign in"></div>
                 <div class="auth-code">Auth Code</div>
-                <pre class="auth-code-label" id="auth-code-value">${syntaxHighlight(JSON.stringify(requestBody, undefined, 4))}</pre>
+                <div class="auth-code-label">
+                    <pre class="auth-code-label" id="auth-code-value">${syntaxHighlight(JSON.stringify(requestBody, undefined, 4))}</pre>
+                </div>
                     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.js"></script> -->
                     <!-- <script src="scripts/multikey.js"></script>
