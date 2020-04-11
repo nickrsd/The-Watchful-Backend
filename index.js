@@ -16,6 +16,42 @@ const server = app
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
+  .post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => {
+	const clientSecret = getClientSecret()
+	const requestBody = {
+		grant_type: 'authorization_code',
+		code: req.body.code,
+		redirect_uri: `https://thewatchful.herokuapp.com${PORT}/callback`,
+		client_id: 'net.slickdeals.slickdeals',
+		client_secret: clientSecret,
+        scope: 'name email',
+	}
+
+	axios.request({
+		method: "POST",
+		url: "https://appleid.apple.com/auth/token",
+		data: querystring.stringify(requestBody),
+		headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+	}).then(response => {
+        requestBody.idToken = response.data.id_token
+        requestBody.authCode = requestBody.code
+        io.emit("verified", querystring.stringify(requestBody))
+		// return res.json({
+		// 	success: true,
+		// 	data: response.data,
+		// 	user: getUserId(response.data.id_token)
+		// })
+	}).catch(error => {
+        requestBody.error = "error with verification"
+        requestBody.idToken = "error with verification"
+        requestBody.authCode = "error with verification"
+        io.emit("verified", querystring.stringify(requestBody))
+		// return res.status(500).json({
+		// 	success: false,
+		// 	error: error.response.data
+		// })
+	})
+   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 let sequenceNumberByClient = new Map();
@@ -124,40 +160,3 @@ const getUserId = (token) => {
 		return null
 	}
 }
-
-app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => {
-	const clientSecret = getClientSecret()
-	const requestBody = {
-		grant_type: 'authorization_code',
-		code: req.body.code,
-		redirect_uri: `https://thewatchful.herokuapp.com${PORT}/callback`,
-		client_id: 'net.slickdeals.slickdeals',
-		client_secret: clientSecret,
-        scope: 'name email',
-	}
-
-	axios.request({
-		method: "POST",
-		url: "https://appleid.apple.com/auth/token",
-		data: querystring.stringify(requestBody),
-		headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-	}).then(response => {
-        requestBody.idToken = response.data.id_token
-        requestBody.authCode = requestBody.code
-        io.emit("verified", querystring.stringify(requestBody))
-		return res.json({
-			success: true,
-			data: response.data,
-			user: getUserId(response.data.id_token)
-		})
-	}).catch(error => {
-        requestBody.error = "error with verification"
-        requestBody.idToken = "error with verification"
-        requestBody.authCode = "error with verification"
-        io.emit("verified", querystring.stringify(requestBody))
-		return res.status(500).json({
-			success: false,
-			error: error.response.data
-		})
-	})
-})
