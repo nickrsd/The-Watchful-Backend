@@ -45,20 +45,20 @@ const server = app
 		// return res.json({
 		// 	success: true,
 		// 	data: response.data,
-        // 	user: getUserId(response.data.id_token)
-        
+		// 	user: getUserId(response.data.id_token)
+        // })
 
         var html = `<html>
-                <head>
-                <meta charset="utf-8" />
-                <meta http-equiv="x-ua-compatible" content="ie=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>The Watchful</title>
+            <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>The Watchful</title>
 
-                <link rel="stylesheet" href="styles/styles.css" />
-                <link rel="icon" href="images/favicon.ico" />
-                <!-- <link rel="stylesheet" href="public/styles/styles.css" />
-                <link rel="icon" href="public/images/favicon.ico" /> -->
+            <link rel="stylesheet" href="styles/styles.css" />
+            <link rel="icon" href="images/favicon.ico" />
+            <!-- <link rel="stylesheet" href="public/styles/styles.css" />
+            <link rel="icon" href="public/images/favicon.ico" /> -->
 
 
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -113,8 +113,6 @@ const server = app
         </html>`
 
         return res.send(html)
-
-		})
 	}).catch(error => {
         requestBody.error = "error with verification"
         requestBody.idToken = "error with verification"
