@@ -1,6 +1,17 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
+    AppleID.auth.init({
+        clientId: 'net.slickdeals.slickdeals',
+        scope: 'name email',
+        redirectURI: 'https://slickdeals.net'
+    });
+    
+    const buttonElement = document.getElementById('appleid-signin');
+    buttonElement.addEventListener('click', () => {
+        AppleID.auth.signIn();
+    });
+
     //https://mighty-everglades-83549.herokuapp.com
 
     var socket = io()
@@ -9,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //ioClient.on("seq-num", (msg) => console.info(msg))
 
     var el = document.getElementById('server-time');
+    var authCode = document.getElementById('auth-code-value');
 
     socket.on('connect', function(){
         alert("client connected")
@@ -34,6 +46,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     socket.on('time', function(timeString) {
         el.innerHTML = 'Server time: ' + timeString;
+    });
+
+    socket.on('verified', function(result) {
+        console.log("received result")
+        console.log(result)
+        authCode.innerHTML = result
     });
 
     var controllerOffset = {

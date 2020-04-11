@@ -4,6 +4,11 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 const socketIO = require('socket.io')
 const monitorio = require('monitor.io')
+const bodyParser = require('body-parser')
+const jwt = require('jsonwebtoken')
+const fs = require('fs')
+const axios = require('axios')
+const querystring = require('querystring')
 ////const io = require("socket.io"), server = io.listen(8000);
 
 const server = app
@@ -88,3 +93,71 @@ function updateMovement() {
 setInterval(updateMovement, 16)
 
 //server.listen(8000)
+
+const getClientSecret = () => {
+	// sign with RSA SHA256
+	const privateKey = fs.readFileSync("DevAppleSignInKey.p8");
+	const headers = {
+		kid: "8MX97CD3W4",
+		typ: undefined
+	}
+	const claims = {
+		'iss': 'X685ZATJSA',
+		'aud': 'https://appleid.apple.com',
+		'sub': 'net.slickdeals.slickdeals',
+	}
+
+	token = jwt.sign(claims, privateKey, {
+		algorithm: 'ES256',
+		header: headers,
+		expiresIn: '24h'
+	});
+
+	return token
+}
+
+const getUserId = (token) => {
+	const parts = token.split('.')
+	try {
+		return JSON.parse(new Buffer(parts[1], 'base64').toString('ascii'))
+	} catch (e) {
+		return null
+	}
+}
+
+app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => {
+	const clientSecret = getClientSecret()
+	const requestBody = {
+		grant_type: 'authorization_code',
+		code: req.body.code,
+		redirect_uri: `https://thewatchful.herokuapp.com${PORT}/callback`,
+		client_id: 'net.slickdeals.slickdeals',
+		client_secret: clientSecret,
+        scope: 'name email',
+	}
+
+	axios.request({
+		method: "POST",
+		url: "https://appleid.apple.com/auth/token",
+		data: querystring.stringify(requestBody),
+		headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+	}).then(response => {
+        requestBody.idToken = response.data.id_token
+        requestBody.authCode = requestBody.code
+        io.emit("verified", querystring.stringify(requestBody))
+		return res.json({
+			success: true,
+			data: response.data,
+			user: getUserId(response.data.id_token)
+		})
+	}).catch(error => {
+        requestBody.error = "error with verification"
+        requestBody.idToken = "error with verification"
+        requestBody.authCode = "error with verification"
+        io.emit("verified", querystring.stringify(requestBody))
+		return res.status(500).json({
+			success: false,
+			error: error.response.data
+		})
+	})
+})
