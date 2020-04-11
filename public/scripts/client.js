@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
     socket.on('time', function(timeString) {
-        //el.innerHTML = 'Server time: ' + timeString;
+        el.innerHTML = 'Server time: ' + timeString;
     });
 
     socket.on('verified', function(result) {

@@ -73,10 +73,12 @@ body {
   #server-time {
 	color: darkslateblue;
 	position: absolute;
-	top: 10px;
+	bottom: 10px;
 	left: 10px;
 	height: 15px;
-	text-align: left
+	font-size: 8px;
+	font-family: monospace;
+	text-align: left;
   }
   
   .zone {
