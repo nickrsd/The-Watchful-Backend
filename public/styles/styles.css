@@ -129,7 +129,7 @@ body {
 .auth-code {
     position: absolute;
     left: 25px;;
-	top: 50px;;
+	top: 100px;;
 	font-size: 36px;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -137,7 +137,7 @@ body {
 .auth-code-label {
     position: absolute;
     left: 25px;;
-	top: 100px;
+	top: 150px;
 	font-size: 18px;
 	height: 400px;
 	width: 100%;
