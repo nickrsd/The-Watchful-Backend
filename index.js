@@ -13,6 +13,7 @@ const querystring = require('querystring')
 
 const server = app
   .use(express.static(path.join(__dirname, 'public')))
+  .use(bodyParser.urlencoded({ extended: false }))
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
