@@ -142,7 +142,7 @@ body {
 	height: 400px;
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
-	width: 600px;
+	right: 25px;
 	overflow: scroll;
 	scroll-behavior: smooth;
 	overflow-x: scroll;
