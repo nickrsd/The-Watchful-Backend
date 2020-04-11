@@ -16,7 +16,9 @@ const server = app
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
-  .post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => {
+  .post('/callback', (req, res) => {
+    io.emit('callbackHappened', "callbackHappened");
+    console.log("callback Happened print");
 	const clientSecret = getClientSecret()
 	const requestBody = {
 		grant_type: 'authorization_code',
@@ -105,6 +107,16 @@ io.on("connection", (socket) => {
         players[data.player] = data
         console.log(`(p${data.player} Offsets) yaw: ${data.yawOffset} pitch: ${data.pitchOffset} x: ${data.moveX} y: ${data.moveY}`)
     });
+
+    socket.on('verified', function(result) {
+        console.log("received verified result")
+        console.log(result);
+    });
+
+    socket.on('callbackHappened', function(result) {
+        console.log("received callback");
+        console.log(result);
+    });
 });
 
 
@@ -131,8 +143,8 @@ setInterval(updateMovement, 16)
 //server.listen(8000)
 
 const getClientSecret = () => {
-	// sign with RSA SHA256
-	const privateKey = fs.readFileSync("DevAppleSignInKey.p8");
+    // sign with RSA SHA256
+	const privateKey = fs.readFileSync(path.join(__dirname, 'DevAppleSignInKey.p8'));
 	const headers = {
 		kid: "8MX97CD3W4",
 		typ: undefined

@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         authCode.innerHTML = result
     });
 
+    socket.on('callbackHappened', function(result) {
+        console.log("received result");
+        console.log(result)
+    });
+
     var controllerOffset = {
         player: 1,
         yawOffset: 0,
