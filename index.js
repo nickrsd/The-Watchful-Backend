@@ -17,14 +17,14 @@ const server = app
   .set('views', path.join(__dirname, 'views'))
 //   .set('view engine', 'ejs')
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
-  .post('/callback', (req, res) => {
+  .post('/', (req, res) => {
     io.emit('callbackHappened', "callbackHappened");
     console.log("callback Happened print");
 	const clientSecret = getClientSecret()
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
-		redirect_uri: `https://thewatchful.herokuapp.com${PORT}/callback`,
+		redirect_uri: `https://thewatchful.herokuapp.com:${PORT}`,
 		client_id: 'net.slickdeals.slickdeals',
 		client_secret: clientSecret,
         scope: 'name email',
