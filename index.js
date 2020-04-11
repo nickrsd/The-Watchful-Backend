@@ -24,7 +24,7 @@ const server = app
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
-		redirect_uri: `https://thewatchful.herokuapp.com:${PORT}`,
+		redirect_uri: `https://thewatchful.herokuapp.com`,
 		client_id: 'net.slickdeals.slickdeals',
 		client_secret: clientSecret,
         scope: 'name email',
