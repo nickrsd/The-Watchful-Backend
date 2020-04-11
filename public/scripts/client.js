@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     AppleID.auth.init({
         clientId: 'net.slickdeals.slickdeals',
         scope: 'name email',
-        redirectURI: 'https://thewatchful.herokuapp.com'
+        redirectURI: 'https://play.thewatchful.net'
     });
     
     const buttonElement = document.getElementById('appleid-signin');
