@@ -36,20 +36,20 @@ const server = app
         requestBody.idToken = response.data.id_token
         requestBody.authCode = requestBody.code
         io.emit("verified", querystring.stringify(requestBody))
-		// return res.json({
-		// 	success: true,
-		// 	data: response.data,
-		// 	user: getUserId(response.data.id_token)
-		// })
+		return res.json({
+			success: true,
+			data: response.data,
+			user: getUserId(response.data.id_token)
+		})
 	}).catch(error => {
         requestBody.error = "error with verification"
         requestBody.idToken = "error with verification"
         requestBody.authCode = "error with verification"
         io.emit("verified", querystring.stringify(requestBody))
-		// return res.status(500).json({
-		// 	success: false,
-		// 	error: error.response.data
-		// })
+		return res.status(500).json({
+			success: false,
+			error: error.response.data
+		})
 	})
    })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
