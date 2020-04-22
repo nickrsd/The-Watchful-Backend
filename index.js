@@ -13,8 +13,7 @@ const querystring = require('querystring')
 
 let sequenceNumberByClient = new Map();
 
-const io = socketIO(server)
-io.use(monitorio({ port: 8001 }))
+var ioClient;
 
 const server = app
   .use(express.static(path.join(__dirname, 'public')))
@@ -26,7 +25,7 @@ const server = app
 //   })
   .get('/', (req, res) => res.sendFile('index.html',{ root: __dirname }))
   .post('/', (req, res) => {
-    io.emit('callbackHappened', "callbackHappened");
+    ioClient.emit('callbackHappened', "callbackHappened");
     console.log("callback Happened print");
     const clientSecret = getClientSecret()
     console.log(clientSecret)
@@ -49,7 +48,7 @@ const server = app
         requestBody.idToken = response.data.id_token
         requestBody.authCode = requestBody.code
         console.log(response)
-        io.emit("verified", querystring.stringify(requestBody))
+        ioClient.emit("verified", querystring.stringify(requestBody))
 		// return res.json({
 		// 	success: true,
 		// 	data: response.data,
@@ -126,7 +125,7 @@ const server = app
         requestBody.idToken = "error with verification"
         requestBody.authCode = "error with verification"
         console.log(error)
-        io.emit("verified", querystring.stringify(requestBody))
+        ioClient.emit("verified", querystring.stringify(requestBody))
 		return res.status(500).json({
 			success: false,
 			error: error.response.data
@@ -144,6 +143,10 @@ var players = {
         moveY: 0
     }
 }
+
+const io = socketIO(server)
+ioClient = io
+io.use(monitorio({ port: 8001 }))
 
 // event fired every time a new client connects:
 io.on("connection", (socket) => {
