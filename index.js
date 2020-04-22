@@ -11,6 +11,11 @@ const axios = require('axios')
 const querystring = require('querystring')
 ////const io = require("socket.io"), server = io.listen(8000);
 
+let sequenceNumberByClient = new Map();
+
+const io = socketIO(server)
+io.use(monitorio({ port: 8001 }))
+
 const server = app
   .use(express.static(path.join(__dirname, 'public')))
   .use(bodyParser.urlencoded({ extended: false }))
@@ -23,7 +28,8 @@ const server = app
   .post('/', (req, res) => {
     io.emit('callbackHappened', "callbackHappened");
     console.log("callback Happened print");
-	const clientSecret = getClientSecret()
+    const clientSecret = getClientSecret()
+    console.log(clientSecret)
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
@@ -39,8 +45,10 @@ const server = app
 		data: querystring.stringify(requestBody),
 		headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 	}).then(response => {
+        console.log("got response")
         requestBody.idToken = response.data.id_token
         requestBody.authCode = requestBody.code
+        console.log(response)
         io.emit("verified", querystring.stringify(requestBody))
 		// return res.json({
 		// 	success: true,
@@ -117,6 +125,7 @@ const server = app
         requestBody.error = "error with verification"
         requestBody.idToken = "error with verification"
         requestBody.authCode = "error with verification"
+        console.log(error)
         io.emit("verified", querystring.stringify(requestBody))
 		return res.status(500).json({
 			success: false,
@@ -125,11 +134,6 @@ const server = app
 	})
    })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-let sequenceNumberByClient = new Map();
-
-const io = socketIO(server)
-io.use(monitorio({ port: 8001 }))
 
 var players = {
     0: {
