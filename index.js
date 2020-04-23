@@ -28,13 +28,12 @@ const server = app
     ioClient.emit('callbackHappened', "callbackHappened");
     console.log("callback Happened print");
     const clientSecret = getClientSecret()
-    console.log(clientSecret)
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
 		redirect_uri: `https://play.thewatchful.net`,
 		client_id: 'net.slickdeals.slickdeals',
-		client_secret: clientSecret.token,
+		client_secret: clientSecret.resultingClientSecret,
         scope: 'name email',
 	}
 
