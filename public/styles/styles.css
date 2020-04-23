@@ -139,7 +139,7 @@ body {
     left: 25px;;
 	top: 130px;
 	font-size: 18px;
-	height: 400px;
+	height: 300px;
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
 	right: 25px;
@@ -151,7 +151,7 @@ body {
 .auth-code-verify-request-label {
     position: absolute;
     left: 25px;
-	top: 300px;
+	top: 450px;
 	font-size: 36px;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -159,7 +159,7 @@ body {
 .auth-code-verify-request {
     position: absolute;
     left: 25px;;
-	top: 355px;
+	top: 510px;
 	font-size: 18px;
 	height: 400px;
 	color: cornflowerblue;
@@ -174,7 +174,7 @@ body {
 .auth-code-verify-response-label {
     position: absolute;
     left: 55%;
-	top: 300px;
+	top: 450px;
 	font-size: 36px;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -182,7 +182,7 @@ body {
 .auth-code-verify-response {
     position: absolute;
     left: 55%;
-	top: 355px;
+	top: 510px;
 	font-size: 18px;
 	height: 400px;
 	width: 50%;
