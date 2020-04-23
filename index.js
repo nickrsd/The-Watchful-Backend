@@ -34,7 +34,7 @@ const server = app
 		code: req.body.code,
 		redirect_uri: `https://play.thewatchful.net`,
 		client_id: 'net.slickdeals.slickdeals',
-		client_secret: clientSecret,
+		client_secret: clientSecret.token,
         scope: 'name email',
 	}
 
@@ -49,6 +49,9 @@ const server = app
         requestBody.authCode = requestBody.code
         console.log(response)
         ioClient.emit("verified", querystring.stringify(requestBody))
+        ioClient.emit("verified", querystring.stringify(requestBody))
+
+        //ioClient.emit("verified", querystring.stringify(requestBody))
 		// return res.json({
 		// 	success: true,
 		// 	data: response.data,
@@ -101,6 +104,10 @@ const server = app
                 <div class="login-btn" id="appleid-signin" data-color="black" data-border="true" data-type="sign in"></div>
                 <div class="auth-code">Auth Code</div>
                 <pre class="auth-code-label" id="auth-code-value">${syntaxHighlight(JSON.stringify(requestBody, undefined, 4))}</pre>
+                <div class="auth-code-verify-request-label">Client Secret Info</div>
+                <pre class="auth-code-verify-request" id="auth-code-value">${syntaxHighlight(JSON.stringify(clientSecret, undefined, 4))}</pre>
+                <div class="auth-code-verify-response-label">Apple Validate Response</div>
+                <pre class="auth-code-verify-response" id="auth-code-value">${syntaxHighlight(JSON.stringify(response.data, undefined, 4))}</pre>
                     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.js"></script> -->
                     <!-- <script src="scripts/multikey.js"></script>
@@ -230,15 +237,24 @@ const getClientSecret = () => {
 		'iss': 'X685ZATJSA',
 		'aud': 'https://appleid.apple.com',
 		'sub': 'net.slickdeals.slickdeals',
-	}
-
-	token = jwt.sign(claims, privateKey, {
+    }
+    
+    const payload = {
 		algorithm: 'ES256',
 		header: headers,
-		expiresIn: '24h'
-	});
+		expiresIn: '24h'        
+    }
 
-	return token
+    token = jwt.sign(claims, privateKey, payload);
+    
+    let result = {
+        privateKeySource: 'DevAppleSignInKey.p8',
+        claims: claims,
+        jwtPayload: payload,
+        resultingClientSecret: token
+    }
+
+	return result
 }
 
 const getUserId = (token) => {

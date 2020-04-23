@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var el = document.getElementById('server-time');
     var authCode = document.getElementById('auth-code-value');
+    var authResults = document.getElementById('auth-code-verify');
 
     socket.on('connect', function(){
         alert("client connected")
@@ -53,6 +54,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(result)
         authCode.innerHTML = result
     });
+
+    socket.on('authenticated', function(result) {
+        console.log("received result")
+        console.log(result)
+        authResults.innerHTML = result
+    });
+
 
     socket.on('callbackHappened', function(result) {
         console.log("received result");

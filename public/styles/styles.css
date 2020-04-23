@@ -148,6 +148,52 @@ body {
 	overflow-x: scroll;
 }
 
+.auth-code-verify-request-label {
+    position: absolute;
+    left: 25px;
+	top: 300px;
+	font-size: 36px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.auth-code-verify-request {
+    position: absolute;
+    left: 25px;;
+	top: 355px;
+	font-size: 18px;
+	height: 400px;
+	color: cornflowerblue;
+	font-family: Helvetica, sans-serif;
+	right: 25px;
+	overflow: scroll;
+	width: 50%;
+	scroll-behavior: smooth;
+	overflow-x: scroll;
+}
+
+.auth-code-verify-response-label {
+    position: absolute;
+    left: 55%;
+	top: 300px;
+	font-size: 36px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.auth-code-verify-response {
+    position: absolute;
+    left: 55%;
+	top: 355px;
+	font-size: 18px;
+	height: 400px;
+	width: 50%;
+	color: cornflowerblue;
+	font-family: Helvetica, sans-serif;
+	right: 25px;
+	overflow: scroll;
+	scroll-behavior: smooth;
+	overflow-x: scroll;
+}
+
 pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 .string { color: green; }
 .number { color: darkorange; }
