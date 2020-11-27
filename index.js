@@ -32,8 +32,8 @@ const server = app
 		grant_type: 'authorization_code',
 		code: req.body.code,
 		redirect_uri: `https://play.thewatchful.net`,
+        client_secret: clientSecret.resultingClientSecret,
 		client_id: 'net.slickdeals.slickdeals',
-		client_secret: clientSecret.resultingClientSecret,
         scope: 'name email',
 	}
 
