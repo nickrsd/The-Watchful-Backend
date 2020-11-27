@@ -202,7 +202,11 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 .key { color: red; }
 
 
-@media only screen and (min-width: 1300px) {
+  /* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2) {
 	.login-btn,
 	.auth-code,
 	.auth-code-label {
@@ -210,9 +214,602 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 	}
 }
 
-@media only screen and (max-width: 1299px) {
+/* Portrait */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 414px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 740px)
+  and (-webkit-min-device-pixel-ratio: 4) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 718px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 718px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 740px)
+  and (-webkit-min-device-pixel-ratio: 4)
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 718px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 718px)
+  and (-webkit-min-device-pixel-ratio: 4)
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- Galaxy S6 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- Google Pixel XL ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media screen 
+  and (device-width: 412px) 
+  and (device-height: 870px) 
+  and (-webkit-device-pixel-ratio: 3.5) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media screen 
+  and (device-width: 412px) 
+  and (device-height: 847px) 
+  and (-webkit-device-pixel-ratio: 2.6) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media screen 
+  and (device-width: 412px) 
+  and (device-height: 870px) 
+  and (-webkit-device-pixel-ratio: 3.5) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media screen 
+  and (device-width: 412px) 
+  and (device-height: 847px) 
+  and (-webkit-device-pixel-ratio: 2.6) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+}
+
+@media only screen
+
+  and (min-width: 992px) {
+
 	.canvas-body,
 	.canvas-label {
 	  display: none;
 	}
-  }
+
+	.auth-code,
+	.auth-code-label {
+	  display: block;
+	}
+
+}
+
+
+@media only screen
+
+  and (max-width: 991px) {
+
+	.canvas-body,
+	.canvas-label {
+	  display: none;
+	}
+
+	.auth-code,
+	.auth-code-label {
+	  display: block;
+	}
+
+}
+
+@media only screen
+
+  and (min-width: 1200px) {
+
+	.canvas-body,
+	.canvas-label {
+	  display: none;
+	}
+
+	.auth-code,
+	.auth-code-label {
+	  display: block;
+	}
+
+}
+
+@media only screen
+
+  and (max-width: 1199px) {
+
+	.canvas-body,
+	.canvas-label {
+	  display: none;
+	}
+
+	.auth-code,
+	.auth-code-label {
+	  display: block;
+	}
+
+}
