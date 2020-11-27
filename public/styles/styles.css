@@ -144,9 +144,9 @@ body {
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
 	right: 25px;
-	overflow: scroll;
+	/* overflow: scroll;
 	scroll-behavior: smooth;
-	overflow-x: scroll;
+	overflow-x: scroll; */
 }
 
 .auth-code-verify-request-label {
@@ -166,10 +166,10 @@ body {
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
 	right: 25px;
-	overflow: scroll;
+	/* overflow: scroll; */
 	width: 50%;
-	scroll-behavior: smooth;
-	overflow-x: scroll;
+	/* scroll-behavior: smooth;
+	overflow-x: scroll; */
 }
 
 .auth-code-verify-response-label {
@@ -212,6 +212,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -225,6 +230,11 @@ and (orientation: portrait) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -237,6 +247,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 
 }
@@ -253,6 +268,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -266,6 +286,11 @@ and (orientation: portrait) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -278,6 +303,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -293,6 +323,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -306,6 +341,11 @@ and (orientation: portrait) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -318,6 +358,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -333,6 +378,11 @@ and (-webkit-min-device-pixel-ratio: 3) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -346,6 +396,11 @@ and (orientation: portrait) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -358,6 +413,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -368,7 +428,16 @@ and (orientation: landscape) {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-min-device-pixel-ratio: 3) { 
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
 
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -382,6 +451,11 @@ and (orientation: portrait) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -394,6 +468,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -406,6 +485,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -420,6 +504,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -432,6 +521,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -447,6 +541,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -460,6 +559,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media only screen
@@ -471,16 +575,10 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
-}
 
-@media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 718px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-	.login-btn,
-	.auth-code,
-	.auth-code-label {
-	  display: none;
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -492,6 +590,27 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
+}
+
+@media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 718px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.login-btn,
+	.auth-code,
+	.auth-code-label {
+	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -506,6 +625,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media only screen
@@ -517,6 +641,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -530,6 +659,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media only screen
@@ -541,6 +675,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -556,6 +695,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -569,6 +713,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -581,6 +730,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -593,6 +747,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -606,6 +765,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -618,6 +782,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -633,6 +802,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -646,6 +820,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media screen 
@@ -658,6 +837,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media screen 
@@ -669,6 +853,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -683,6 +872,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media screen 
@@ -695,6 +889,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 @media screen 
@@ -706,6 +905,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
@@ -721,6 +925,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Portrait */
@@ -734,6 +943,11 @@ and (orientation: landscape) {
 	.auth-code-label {
 	  display: none;
 	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
+	}
 }
 
 /* Landscape */
@@ -746,6 +960,11 @@ and (orientation: landscape) {
 	.auth-code,
 	.auth-code-label {
 	  display: none;
+	}
+
+	.canvas-body,
+	.canvas-label {
+	  display: block;
 	}
 }
 
