@@ -1,16 +1,16 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    AppleID.auth.init({
-        clientId: 'net.slickdeals.slickdeals',
-        scope: 'name email',
-        redirectURI: 'https://play.thewatchful.net'
-    });
+    // AppleID.auth.init({
+    //     clientId: 'net.slickdeals.slickdeals',
+    //     scope: 'name email',
+    //     redirectURI: 'https://play.thewatchful.net'
+    // });
     
-    const buttonElement = document.getElementById('appleid-signin');
-    buttonElement.addEventListener('click', () => {
-        AppleID.auth.signIn();
-    });
+    // const buttonElement = document.getElementById('appleid-signin');
+    // buttonElement.addEventListener('click', () => {
+    //     AppleID.auth.signIn();
+    // });
 
     //https://mighty-everglades-83549.herokuapp.com
 
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //ioClient.on("seq-num", (msg) => console.info(msg))
 
     var el = document.getElementById('server-time');
-    var authCode = document.getElementById('auth-code-value');
-    var authResults = document.getElementById('auth-code-verify');
+    // var authCode = document.getElementById('auth-code-value');
+    // var authResults = document.getElementById('auth-code-verify');
 
     socket.on('connect', function(){
         alert("client connected")
