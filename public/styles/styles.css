@@ -10,6 +10,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	scroll-behavior: auto;
+	
   }
   
   #buttons {
@@ -130,23 +131,18 @@ body {
 .auth-code, .canvas-label {
     position: absolute;
     left: 25px;
-	top: 75px;
+	top: 55px;
 	font-size: 36px;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.auth-code-label, .canvas-label {
+.auth-code-label, .canvas-body {
     position: absolute;
     left: 25px;;
-	top: 130px;
+	top: 70px;
 	font-size: 18px;
-	height: 300px;
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
-	right: 25px;
-	overflow: scroll;
-	scroll-behavior: smooth;
-	overflow-x: scroll;
 }
 
 .auth-code-verify-request-label {
@@ -166,10 +162,7 @@ body {
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
 	right: 25px;
-	overflow: scroll;
 	width: 50%;
-	scroll-behavior: smooth;
-	overflow-x: scroll;
 }
 
 .auth-code-verify-response-label {
@@ -189,9 +182,6 @@ body {
 	color: cornflowerblue;
 	font-family: Helvetica, sans-serif;
 	right: 25px;
-	overflow: scroll;
-	scroll-behavior: smooth;
-	overflow-x: scroll;
 }
 
 pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
